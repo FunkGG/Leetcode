@@ -10,7 +10,7 @@ class Solution:
             right = n-1
             while left<right:
                 tmp = nums[i]+nums[left]+nums[right]
-                if tmp ==target:
+                if tmp == target:
                     return target
                 if abs(ans-target) > abs(tmp-target):
                     ans = tmp
