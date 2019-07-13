@@ -2,20 +2,16 @@ class Solution:
     def isValid(self, s: str) -> bool:
         d = {'(': 1, '[': 2, '{': 3, ')': -1, ']': -2, '}': -3}
         ans = []
-        lab = float('inf')
-
         for i in s:
             if i in d:
                 tmp = d[i]
-                if 0 < tmp:
+                if 0 < tmp :
                     ans.append(tmp)
-                    lab = tmp
-                elif tmp == -lab:
+                elif tmp == -ans[-1]:
                     ans.pop(-1)
-                    lab = ans[-1] if ans else float('inf')
                 else:
                     return False
-        if ans:
+        if len(ans) > 1:
             return False
         else:
-            return True
+            return True  
