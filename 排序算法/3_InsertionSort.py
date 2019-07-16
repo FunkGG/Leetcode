@@ -1,5 +1,5 @@
 class Solution:
-    def SelectionSort(self, nums: List[int]) -> List[int]]:
+    def InsertionSort(self, nums: List[int]) -> List[int]]:
         n = len(nums)
         if not n:
             return nums
