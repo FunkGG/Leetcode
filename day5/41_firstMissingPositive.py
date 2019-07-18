@@ -7,7 +7,7 @@ class Solution:
         for i in range(len(nums)-1):
             if nums[i+1] > 1 and nums[i+1] - nums[i] > 1:
                 num = nums[i] + 1
-                while num < 1:
-                    num += 1
+                if num < 1:
+                    num = 1
                 return num
         return out
