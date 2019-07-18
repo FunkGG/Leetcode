@@ -2,15 +2,17 @@ class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         candidates.sort()
         n = len(candidates)
+        if not n:
+            return []
         out = []
-        tmplist = []
-        # ans = target
-        def f1(tmplist, target, stp):
-            if target == 0:
+        def f1(tmplist, tmpSum, i):
+            if target == tmpSum:
                 out.append(tmplist)
-            if target >= candidates[0]:
-                for i in range(stp, n):
-                    candidate = candidates[i]
-                    f1(tmplist+[candidate], target-candidate, i)
-        f1(tmplist, target, 0)
+            else:
+                for j in range(i,n):
+                    c = candidates[j]
+                    if tmpSum+c>target:
+                        break
+                    f1(tmplist+[c],tmpSum+c,j)
+        f1([],0,0)
         return out
